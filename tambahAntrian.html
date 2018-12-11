@@ -1,0 +1,270 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylecontact.css">
+	<link href="https://cdn4.vectorstock.com/i/1000x1000/91/58/medicine-icon-snake-on-cup-medical-vector-11169158.jpg" rel="shortcut icon">
+<title>RS P Iyh</title>
+</head>
+<style>
+body {
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#output {
+	font-size:0px;
+}
+
+form {
+    margin: 0 auto;
+    width: 960px;
+}
+
+form > h1 {
+    border-bottom: 1px solid #E5E5E5;
+    font-size: 1.5em;
+    line-height: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+    width: 100%;
+}
+
+fieldset {
+    border: none;
+}
+
+fieldset > legend {
+    font-size: 1.25em;
+    line-height: 2.5em;
+}
+
+input {
+    display: inline-block;
+    vertical-align: center;
+}
+
+input:required:invalid,
+input:focus:invalid,
+input:required:valid {
+    background-position: 97.5% center;
+    background-repeat: no-repeat;
+}
+
+input:required:invalid,
+input:focus:invalid {
+    background-image: url("http://i.imgur.com/NSaK8yt.png");
+}
+
+input:required:valid {
+    background-image: url("http://i.imgur.com/ttb7yp4.png");
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+    border: 1px solid #999;
+    margin: 4px 10px;
+    padding: 5px;
+    width: 100px;
+}
+
+input[type=button]:hover,
+input[type=submit],
+input[type=reset]:hover {
+    cursor: pointer;
+}
+
+input[type=button]:active,
+input[type=submit],
+input[type=reset]:active {
+    background: #D4D4D4;
+}
+
+input[type=button],
+input[type=submit] {
+    background: linear-gradient(to bottom, #0088CC, #0044CC);
+    border: 1px solid #0088CC;
+    color: #FFF;
+}
+
+input[type=button]:active,
+input[type=submit]:active{
+    background: #0044CC;
+}
+
+select,
+input[type*=date],
+input[type=text],
+input[type=tel], 
+input[type=email],
+input[type=url],
+input[type=password] {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 5px;
+    width: 225px;
+}
+
+select:focus,
+input:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    border-radius: 5px;
+    box-shadow: inset 
+                0 
+                1px 1px 
+                rgba(0, 0, 0, 0.075), 
+                0 0 8px 
+                rgba(82, 168, 236, 0.6);
+    outline: 0;
+}
+
+.control-group {
+    margin: 10px 0;
+}
+
+.control-group > label {
+    display: inline-block;
+    text-align: right;
+    width: 20%;
+}
+
+h1 {
+align:center;
+}
+
+#FormAction {
+    border-top: 1px solid #C5C5C5;
+    margin-bottom: 1em;
+    text-align: center;
+    width: 100%;
+
+	.rs:visited{
+		color:#63b8ff;
+		text-decoration:none;
+	}
+	.rs{
+		color:#63b8ff;
+		text-decoration:none;
+	}
+	.rs:hover{
+		color:black;
+	}
+
+</style>
+<body>
+<div class='title'>
+  Rumah Sakit P IYH
+</div>
+<div class='breadcrumbs'>
+  <div class='inner'>
+    <ul class='cf'>
+      <li>
+        <a href="index.html" class='active'>
+          <span>1</span>
+          <span>Home</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+    <br><br><br><br><br><br>
+    
+        <label for="name"><b>Cari Pasien :</b></label>
+                    <br>
+                    <br>
+                    <input type="text" placeholder="Enter NIK" id="nik" required>
+                    <input type="button" onclick="loadDoc()" id="btn" value="Baca"></button>
+                    
+                    <br><br>
+                    
+                     <script>
+                    function loadDoc() {
+                        var Url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik=" + nik.value;
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.open('GET', Url, true);
+                        xhttp.send();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("nama").innerHTML = this.responseText;
+                                var myObj = JSON.parse(this.responseText);
+                                document.getElementById("noRm").value = myObj.noRm;
+                                document.getElementById("nama").value = myObj.nama;
+                                document.getElementById("alamat").value = myObj.alamat;
+
+                            }
+                        };
+                    }
+                    ;
+                </script>
+        <form method="POST" onsubmit="return make_json(this);" action="">
+	<h1>Form Pendaftaran RS P Iyh</h1>
+
+        <fieldset id="UserDataFields">
+            <legend>Data Pasien (wajib diisikan seluruhnya)</legend>
+            
+            
+            <div class="control-group">
+                <label for="tanggal">Tanggal Masuk</label>
+                <input type="text" id="tanggal" name="tanggal" required>
+            </div>
+
+            <div class="control-group">
+                <label for="noRm">No Rekam Medis</label>
+                <input type="text" name="noRm" id="noRm" required>
+            </div>
+
+            <div class="control-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" required>
+            </div>
+
+            <div class="control-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" required>
+            </div>
+
+
+            <div class="control-group">
+                <label for="namaKlinik">Nama Klinik</label>
+                <select id="namaKlinik" id="namaKlinik">
+                    <option value="Gigi">Klinik Gigi</option>
+                    <option value="Mata">Klinik Mata</option>
+                    <option value="Anak">Klinik Anak</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset id="FormAction">
+            <legend>Selesai mengisikan form?</legend>
+
+            <input type="reset" value="Reset Form">
+            <input type="submit" value="Daftar">
+        </fieldset>
+    </form>
+    
+    <div id="keluaran"></div>
+<script>
+    function make_json(form) {
+                        var json = {
+                            "tanggal": form.tanggal.value,
+                            "noRm": form.noRm.value,
+                            "nama": form.nama.value,
+                            "alamat": form.alamat.value,
+                            "namaKlinik": form.namaKlinik.value
+
+                        };
+                        var html = JSON.stringify(json, 0, 100);
+                        var Url = "http://206.189.38.188:8080/myrs/webresources/antrian/tambahAntri";
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', Url, false);
+                        xhr.setRequestHeader("Content-type", "application/json");
+                        xhr.send(html);
+                        document.getElementById("keluaran").innerHTML = html;
+                        return false;
+
+                    }
+
+          </script>
+          
+          
+</body>
+</html>

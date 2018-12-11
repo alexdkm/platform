@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+<link href="https://www.seaicons.com/wp-content/uploads/2015/10/cloud-icon5.png" rel="shortcut icon">
+<link rel="stylesheet" type="text/css" href="styleJson.css">
+
+        <title>Test JSON</title>
+    </head>
+    <body>
+<div id="langit">
+	<div class="awan no1"></div>
+	<div class="awan no2"></div>
+	<div class="awan no3"></div>
+	<div class="awan no4"></div>
+	<div class="awan no5"></div>
+        <form onsubmit="return make_json(this);" method="POST">
+		<table>
+			<tr>
+			<td colspan="3" align="center">Daftar Pasien Baru</td>
+			</tr>
+		
+			<tr name="RowNoRM">
+			<td>No RM</td>
+			<td>: </td>
+			<td><input type="text" name="no" id="no" /></td>
+			</tr>
+            <tr name="RowNama">
+			<td>Nama Klinik</td>
+			<td>:</td> 
+			<td><input type="text" name="nama" id="nama"></td>
+			</tr>
+			
+                        <tr name="RowAlamat">
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td><input text="text" name="alamat" id="alamat">
+                        </tr>
+                        
+                        <tr name="RowNik">
+                            <td>Nik</td>
+                            <td>:</td>
+                            <td><input text="text" name="nik" id="nik"></td>
+                        </tr>
+                        
+                        <tr name="RowTTL">
+                            <td>Tanggal Lahir</td>
+                            <td>:</td>
+                            <td><input text="text" name="TTL" id="TTL"</td>
+                        </tr>
+                        
+                        <tr name="kelamin">
+                            <td>Jenis Kelamin</td>
+                            <td>:</td>
+                            <td><input type="text" id="kelamin" name="kelamin"></td>
+                        </tr>
+                        
+			<tr name="button">
+                        <td colspan="3" align="center"><input type="submit" value="Tambah">
+			
+			</td>
+			</tr>
+			</table>
+            
+            <pre id="output" >
+            </pre>
+		<script>		
+		function make_json(form) {
+                var json = {
+                    "noRM": form.no.value,
+                    "nama": form.nama.value,
+                    "alamat": form.alamat.value,
+                    "nik": form.nik.value,
+                    "tanggalLahir": form.TTL.value,
+                    "kelamin": form.kelamin.value
+		
+                };
+                var html = JSON.stringify(json, 0, 100);
+                var Url = "http://202.94.83.190:8080/rsku/webresources/pasien/tambahPasienBaru";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);
+                alert(document.getElementById("output").innerHTML = html+" Id dan Nama Klinik Sukses Ditambahkan");
+                return false;
+            }
+
+
+        </script>
+		
+		</form>
+		</div>
+    </body>
+</html>

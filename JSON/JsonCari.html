@@ -1,0 +1,226 @@
+<html>
+   <head>
+	<link rel="stylesheet" type="text/css" href="/~165314002/stylecontact.css">
+	<link href="https://cdn4.vectorstock.com/i/1000x1000/91/58/medicine-icon-snake-on-cup-medical-vector-11169158.jpg" rel="shortcut icon">
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>RS P Iyh</title>
+  <style>
+input[type=submit]{
+    background: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+    border: 1px solid #999;
+    margin: 4px 10px;
+    padding: 5px;
+    width: 100px;
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover {
+    cursor: pointer;
+}
+
+input[type=submit]:active,
+input[type=reset]:active {
+    background: #D4D4D4;
+}
+
+input[type=submit] {
+    background: linear-gradient(to bottom, #0088CC, #0044CC);
+    border: 1px solid #0088CC;
+    color: #FFF;
+}
+
+input[type=submit]:active {
+    background: #0044CC;
+}
+
+input[type=text] {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 5px;
+    width: 225px;
+}
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+ 	 -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+		font-color:white;
+}
+
+.container {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+}
+
+.container tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+.container tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.container th {
+	  background-color: #1F2739;
+}
+
+pre{
+color:white;
+}
+
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #72BAB3;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+
+</style>
+</head>
+   <body>
+	<div class='title'>
+  Rumah Sakit P IYH
+</div>
+<div class='breadcrumbs'>
+  <div class='inner'>
+    <ul class='cf'>
+      <li>
+        <a href="/~165314002/index.html" >
+          <span>1</span>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="CariKlinik.html" >
+          <span>2</span>
+          <span>Cari Klinik</span>
+        </a>
+      </li>
+      <li>
+        <a href="JsonCari.html" class='active'>
+          <span>3</span>
+          <span>Cari Dokter</span>
+        </a>
+      </li>
+      <li>
+        <a href="/~165314002/bacaklinik.html">
+          <span>4</span>
+          <span>Login</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+	<br><br><br><br>
+	<br><br>
+
+       <div id="demo">
+           <h2>Registered Doctors Search</h2>
+           <label for="name"><b>Silahkan Klik Tombol Disebelah Ini</b></label>
+           <input type ="submit" onclick= "loadDocDokter()" id="btn" value="Cari Dokter">
+<table class="container">
+	<thead>
+		<tr>
+		<th colspan="2" align="center"><h1>Data Dokter</h1></th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td id="tampil2"></td>
+	</tr>	
+</tbody>
+</table>
+	
+	  </div>
+           <script>
+
+		  function loadDocDokter() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://202.94.83.190:8080/165314002RS/webresources/Dokter";
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+                var out = "<table><tr><td>Nomor</td><td>Nama Dokter</td><td>Spesialis</td>";
+
+                for (i = 0; i < arr.length; i++) {
+                    out += "<tr><td>" +
+                            arr[i].id + "</td><td>" + arr[i].nama + "</td><td>" +
+                            arr[i].spesialis;
+
+                }
+                out += "</table><";
+                document.getElementById("tampil2").innerHTML = out;
+            }
+        }	
+           function loadDoc(){
+               var url ="http://202.94.83.190:8080/rsku/webresources/pasien/cariPasien?nik="+nik.value;
+               var xhttp = new XMLHttpRequest();
+               xhttp.open("GET", url, true);
+               xhttp.send();
+               xhttp.onreadystatechange = function(){
+                   if (this.readyState == 4 && this.status == 200){
+                       var object = JSON.parse(this.responseText);
+                       document.getElementById("outNama").innerHTML = object.nama;
+			document.getElementById("outAlamat").innerHTML = object.alamat;
+			document.getElementById("outNik").innerHTML = object.nik;
+			document.getElementById("outTtl").innerHTML = object.tanggalLahir;
+			document.getElementById("outKelamin").innerHTML = object.kelamin;                   
+		}
+               }
+           }    
+           
+	shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!1,disable_in_input:!1,target:document,keycode:!1};if(c)for(var e in d)"undefined"==typeof c[e]&&(c[e]=d[e]);else c=d;d=c.target,"string"==typeof c.target&&(d=document.getElementById(c.target)),a=a.toLowerCase(),e=function(d){d=d||window.event;if(c.disable_in_input){var e;d.target?e=d.target:d.srcElement&&(e=d.srcElement),3==e.nodeType&&(e=e.parentNode);if("INPUT"==e.tagName||"TEXTAREA"==e.tagName)return}d.keyCode?code=d.keyCode:d.which&&(code=d.which),e=String.fromCharCode(code).toLowerCase(),188==code&&(e=","),190==code&&(e=".");var f=a.split("+"),g=0,h={"`":"~",1:"!",2:"@",3:"#",4:"$",5:"%",6:"^",7:"&",8:"*",9:"(",0:")","-":"_","=":"+",";":":","'":'"',",":"<",".":">","/":"?","\\":"|"},i={esc:27,escape:27,tab:9,space:32,"return":13,enter:13,backspace:8,scrolllock:145,scroll_lock:145,scroll:145,capslock:20,caps_lock:20,caps:20,numlock:144,num_lock:144,num:144,pause:19,"break":19,insert:45,home:36,"delete":46,end:35,pageup:33,page_up:33,pu:33,pagedown:34,page_down:34,pd:34,left:37,up:38,right:39,down:40,f1:112,f2:113,f3:114,f4:115,f5:116,f6:117,f7:118,f8:119,f9:120,f10:121,f11:122,f12:123},j=!1,l=!1,m=!1,n=!1,o=!1,p=!1,q=!1,r=!1;d.ctrlKey&&(n=!0),d.shiftKey&&(l=!0),d.altKey&&(p=!0),d.metaKey&&(r=!0);for(var s=0;k=f[s],s<f.length;s++)"ctrl"==k||"control"==k?(g++,m=!0):"shift"==k?(g++,j=!0):"alt"==k?(g++,o=!0):"meta"==k?(g++,q=!0):1<k.length?i[k]==code&&g++:c.keycode?c.keycode==code&&g++:e==k?g++:h[e]&&d.shiftKey&&(e=h[e],e==k&&g++);if(g==f.length&&n==m&&l==j&&p==o&&r==q&&(b(d),!c.propagate))return d.cancelBubble=!0,d.returnValue=!1,d.stopPropagation&&(d.stopPropagation(),d.preventDefault()),!1},this.all_shortcuts[a]={callback:e,target:d,event:c.type},d.addEventListener?d.addEventListener(c.type,e,!1):d.attachEvent?d.attachEvent("on"+c.type,e):d["on"+c.type]=e},remove:function(a){var a=a.toLowerCase(),b=this.all_shortcuts[a];delete this.all_shortcuts[a];if(b){var a=b.event,c=b.target,b=b.callback;c.detachEvent?c.detachEvent("on"+a,b):c.removeEventListener?c.removeEventListener(a,b,!1):c["on"+a]=!1}}},shortcut.add("Ctrl+U",function(){top.location.href="#"});
+
+           </script>                
+   </body>
+</html>

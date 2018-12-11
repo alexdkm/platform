@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="http://icons.iconarchive.com/icons/blackvariant/shadow135-system/256/Calculator-icon.png" rel="shortcut icon">
+<title>Kalkulator</title>
+
+</head>
+<body>
+<script>
+	function tampilkan(){
+		var tampil=document.getElementById("nama").value;
+		var slot=document.getElementById("slot");	
+	
+		slot.innerHTML=tampil;
+	}
+	function tambah(){
+	var angka1= document.getElementById("angka1").value;
+	var angka2= document.getElementById("angka2").value;	
+	var hasil = eval(angka1)+eval(angka2);
+	
+	document.getElementById("tampil").innerHTML= hasil;
+	}
+	function kurang(){
+	var angka1= document.getElementById("angka1").value;
+	var angka2= document.getElementById("angka2").value;
+	var kurang= eval(angka1)-eval(angka2);	
+	
+	document.getElementById("tampil").innerHTML=kurang;
+	}
+	
+	function kali(){
+	var angka1= document.getElementById("angka1").value;
+	var angka2= document.getElementById("angka2").value;
+	var kali= eval(angka1)*eval(angka2);	
+	
+	document.getElementById("tampil").innerHTML=kali;
+	}
+	
+	function modulus(){
+	var angka1= document.getElementById("angka1").value;
+	var angka2= document.getElementById("angka2").value;
+	var mod= eval(angka1)%eval(angka2);	
+	
+	document.getElementById("tampil").innerHTML=mod;
+	}
+
+	function bagi(){
+	var angka1= document.getElementById("angka1").value;
+	var angka2= document.getElementById("angka2").value;
+	var bagi= eval(angka1)/eval(angka2);	
+	
+	document.getElementById("tampil").innerHTML=bagi;
+	}
+</script>
+Nama :
+<input text="text" name="nama" id="nama">
+<input type="submit" value="Click" onclick="tampilkan()">
+<p id="slot">
+</p>
+<br>
+
+<input text="float" name="angka1" id="angka1">
+<input text="float" name="angka2" id="angka2">
+
+<input type="submit" value="+" id="tambah" onclick="tambah()">
+<input type="submit" value="-" id="kurang" onclick="kurang()">
+<input type="submit" value="*" id="kali" onclick="kali()">
+<input type="submit" value="/" id="bagi" onclick="bagi()">
+<input type="submit" value="%" id="bagi" onclick="modulus()">
+<br>
+
+<p id="tampil"></p>
+</body>
+</html>

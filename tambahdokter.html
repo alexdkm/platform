@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<!--
+	Epilogue by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>RS P Iyh</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner">
+					<h1><a href="index.html">RS P Iyh</a></h1>
+					<p><a href="index.html">Anda Sembuh Kami Bayar!</a></p>
+				</div>
+			</header>
+            <div id="output">
+                <form onsubmit="return make_json(this);" method="POST">
+                            Nama <input type="text" name="nama" />
+                             Spesialis<td><input type="text" name="spesialis"/>
+                            </table>
+                            <br></br>
+                            <input type="submit" value="Tambah"/>
+                        </form>
+
+
+            </div>
+        </section>
+
+        <pre id ="undemo">
+
+        </pre>
+        <script>
+            function make_json(form) {
+                            var json = {
+                                "nama": form.nama.value,
+                                "spesialis": form.spesialis.value
+                            };
+                            var html = JSON.stringify(json, 0, 100);
+
+                            var Url = "http://202.94.83.190:8080/165314021RS3/webresources/Dokter/addDokter";
+                            var xhr = new XMLHttpRequest();
+                            xhr.open('POST', Url, false);
+                            xhr.setRequestHeader("Content-type", "application/json");
+                            xhr.send(html);
+                            document.getElementById("output").innerHTML = "Daftar Dokter Baru Selesai.";
+                            return false;
+                        }
+        </script>
+   
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+        async defer></script>
+    </body>
+</html>        <section>

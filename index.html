@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+	Epilogue by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>RS P Iyh</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner">
+					<h1>RS P Iyh</h1>
+					<p>Anda Sembuh Kami Bayar!</a></p>
+				</div>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Banner -->
+					<section id="intro" class="main">
+						<span class="icon fa-diamond major"></span>
+						<h2>Tentang Rumah Sakit Kami</h2>
+						<p>Kami Bergerak dalam bidang Kesehatan, dimana kami menerima
+						berbagai macam Pasien, sakit dalam, sakit luar, hewan, dll.
+						visi kami membuat anda tetap sakit karena jika anda sembuh, kami harus membayar Anda</p>
+						<ul class="actions">
+							
+						</ul>
+					</section>
+				<!-- Items -->
+					<section class="main items">
+						<article class="item">
+							<header>
+								<a href="bacaklinik.html"><img src="images/pic01.jpg" alt="" /></a>
+								<h3>Login</h3>
+							</header>
+							<ul class="actions">
+								<li><a href="bacaklinik.html" class="button">More</a></li>
+							</ul>
+						</article>
+						<article class="item">
+							<header>
+								<a href="JSON/CariKlinik.html"><img src="images/pic02.jpg" alt="" /></a>
+								<h3>Daftar Klinik Kami</h3>
+							</header>
+							<ul class="actions">
+								<li><a href="JSON/CariKlinik.html" class="button">More</a></li>
+							</ul>
+						</article>
+						<article class="item">
+							<header>
+								<a href="JSON/JsonCari.html"><img src="images/pic03.jpg" alt="" /></a>
+								<h3>Daftar Dokter Kami</h3>
+							</header>
+							<ul class="actions">
+								<li><a href="JSON/JsonCari.html" class="button">More</a></li>
+							</ul>
+						</article>
+						<article class="item">
+							<header>
+								<a href="listantrian.html"><img src="images/pic04.jpg" alt="" /></a>
+								<h3>List Antrian Pasien</h3>
+							</header>
+							<ul class="actions">
+								<li><a href="listantrian.html" class="button">More</a></li>
+							</ul>
+						</article>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="main special">
+						<h2>Merasa Tertarik?</h2>
+						<ul class="actions">
+							<li><a href="#" class="button big">Kembali Ke Atas</a></li>
+						</ul>
+	
+				</section>
+ <div class="grid_5">
+        <h2 class="indent-1">Lokasi </h2>
+        <ul class="list-news">
+            <a href="lokasi.html" class="btn">Daftar Lokasi Klinik</a>
+            <div id="map"></div>        
+
+        <script>
+            
+            var map;
+            function loadDocLocation() {
+
+            var url = "http://202.94.83.190:8080/165314037_ServiceRSku/webresources/location";
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var obj = JSON.parse(this.responseText);
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: obj[0].lat, lng: obj[0].lng},
+                        zoom: 15
+                    });
+                    var marker = [];
+                    for (var i = 0; i < obj.length; i++) {
+                        marker[i] = new google.maps.Marker({position: {lat: obj[i].lat, lng: obj[i].lng}, map: map});
+                    }
+                }
+            }
+                xhttp.open("GET", url, true);
+                xhttp.send();
+                }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+        async defer></script>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <script>
+            var map;
+                var url = "http://202.94.83.190:8080/165314002RS/webresources/location";
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var obj = JSON.parse(this.responseText);
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: obj[0].lat, lng: obj[0].lng},
+                            zoom: 17
+                        });
+                        var marker = [];
+                        for (var i = 0; i < obj.length; i++) {
+                             marker[i] = new google.maps.Marker({position: {lat: obj[i].lat, lng: obj[i].lng}, map: map});
+                        }
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+      
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+        async defer></script>
+			<!-- Main -->
+				<!--
+					<section id="main" class="main">
+						<header>
+							<h2>Lorem ipsum dolor</h2>
+						</header>
+						<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+					</section>
+				-->
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://twitter.com/lot_laugh" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://facebook.com/penggemargustama" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="https://instagram.com/alexdkm" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://gmail.com/" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

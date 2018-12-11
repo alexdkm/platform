@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+<link href="https://www.seaicons.com/wp-content/uploads/2015/10/cloud-icon5.png" rel="shortcut icon">
+<link rel="stylesheet" type="text/css" href="styleJson.css">
+
+        <title>Test JSON</title>
+    </head>
+    <body>
+<pre id="output">
+</pre>
+	<div id="langit">
+	<div class="awan no1"></div>
+	<div class="awan no2"></div>
+	<div class="awan no3"></div>
+	<div class="awan no4"></div>
+	<div class="awan no5"></div>
+        <form onsubmit="return make_json(this);" method="POST" action="#">
+		<table>
+			<tr>
+			<td colspan="3" align="center">Daftar Klinik</td>
+			</tr>
+		
+			<tr name="RowId">
+			<td>Id Klinik</td>
+			<td>: </td>
+			<td><input type="text" name="idKlinik" id="idKlinik" /></td>
+			</tr>
+            <tr name="RowNama">
+			<td>Nama Klinik</td>
+			<td>:</td> 
+			<td><input type="text" name="nama" id="nama"></td>
+			</tr>
+			
+			<tr name="button">
+            <td colspan="3" align="center"><input type="submit" value="Tambah">
+			
+			</td>
+			</tr>
+			</table>
+		<script>		
+		function make_json(form) {
+                var json = {
+                    "idKlinik": form.idKlinik.value,
+                    "nama": form.nama.value
+		
+                };
+                var html = JSON.stringify(json, 0, 100);
+                var Url = "http://202.94.83.190:8080/rsku/webresources/klinik/bacaKlinik";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);
+                alert(document.getElementById("output").innerHTML = html+" Id dan Nama Klinik Sukses Ditambahkan");
+                return false;
+            }
+
+
+        </script>
+		
+		</form>
+		</div>
+    </body>
+</html>
